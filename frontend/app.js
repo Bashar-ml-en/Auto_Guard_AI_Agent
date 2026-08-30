@@ -247,7 +247,7 @@ function inspectDAGNode(nodeId) {
   const snapshot = nodeMemorySnapshots[nodeId] || {
     step_id: nodeId,
     status: "COMPLETED_VERIFIED",
-    runtime: "Google Cloud Run / Gemini 2.5 Flash",
+    runtime: "Google Cloud Run / Gemini 3.7 Flash",
     context_tokens_analyzed: 412,
     memory_bank: "Cloud Firestore Native",
     security_envelope: "Immutable-Directive-v1"
@@ -517,8 +517,8 @@ async function runAnimatedTaskmasterCascade(appName, domain, prompt, secrets) {
   isExecuting = true;
   const stages = [
     { id: 'dag_01_plan', label: '1. Threat Ingestion', log: `Decomposing threat boundaries for '${appName}' (${domain})...`, dur: 800 },
-    { id: 'dag_02_red_team', label: '2. Red-Team Agent', log: 'RedTeamAgent synthesized 50 adversarial attack vectors with Gemini 2.5 Flash.', dur: 1000 },
-    { id: 'dag_03_baseline_eval', label: '3. Batch Executor', log: 'Executed 50 concurrent async probes in parallel Gemini sandbox.', dur: 1100 },
+    { id: 'dag_02_red_team', label: '2. Red-Team Agent', log: 'RedTeamAgent synthesized 50 adversarial attack vectors with Gemini 3.7 Flash.', dur: 1000 },
+    { id: 'dag_03_baseline_eval', label: '3. Batch Executor', log: 'Executed 50 concurrent async probes in parallel Gemini 3.7 sandbox.', dur: 1100 },
     { id: 'dag_04_critic', label: '4. Critic Judge', log: 'CriticAgent scanned PII leaks & delimiter escapes. Baseline score: 32.5% (Critical).', dur: 1000 },
     { id: 'dag_05_self_heal', label: '5. Self-Healing Loop', log: 'Self-Healing Iteration 1-3 complete: Injected Immutable Delimiter Armor. Fortified score: 98.0% (Grade A+).', dur: 1200 },
     { id: 'dag_06_cloud_deploy', label: '6. Cloud Run Deploy', log: 'Packaged Cloud Run microservice container & committed state to Cloud Firestore.', dur: 800 }
