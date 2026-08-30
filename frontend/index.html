@@ -348,7 +348,7 @@
       </section>
 
       <!-- RIGHT: SYNTAX-HIGHLIGHTED LIVE TELEMETRY LOG (5 COLS) -->
-      <section class="lg:col-span-5 console-panel flex flex-col justify-between">
+      <section class="lg:col-span-5 console-panel flex flex-col h-full">
         <div class="console-header-strip">
           <div class="flex items-center gap-2">
             <i data-lucide="terminal" class="w-4 h-4 text-[#00f0ff]"></i>
@@ -360,8 +360,8 @@
           </div>
         </div>
 
-        <div class="p-3 bg-[#05070c]">
-          <div id="terminalLog" class="secops-terminal">
+        <div class="p-3 bg-[#05070c] flex-1 flex flex-col min-h-0">
+          <div id="terminalLog" class="secops-terminal flex-1">
             <div class="log-entry info">
               <span class="log-time">[00:00:00]</span>
               <span>AutoGuard AI Taskmaster Engine Initialized on Google Cloud Run.</span>
@@ -377,7 +377,7 @@
           </div>
         </div>
 
-        <div class="px-4 py-2 bg-[#0a0e17] border-t border-[#1e293b] flex items-center justify-between text-[10px] font-mono text-[#64748b]">
+        <div class="px-4 py-2 bg-[#0a0e17] border-t border-[#1e293b] flex items-center justify-between text-[10px] font-mono text-[#64748b] mt-auto">
           <span>STREAM STATUS: ONLINE</span>
           <span>CURSOR ACTIVE <span class="terminal-cursor"></span></span>
         </div>
