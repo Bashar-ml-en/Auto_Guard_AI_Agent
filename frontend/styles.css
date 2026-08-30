@@ -1,39 +1,39 @@
 /* ==========================================================================
-   AutoGuard AI — Dual-Zone Light & Dark Studio Design System
-   Architecture: High-Contrast Fusion (Crisp Porcelain Studio + Cyber Obsidian)
-   Typography: Space Grotesk, Plus Jakarta Sans, JetBrains Mono
+   AutoGuard AI — Google Material Light Theme & Clean Modal Architecture
+   Inspired by Google Design System (Google Blue, Red, Yellow, Green)
+   Typography: Google Sans, Plus Jakarta Sans, JetBrains Mono
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
 
 :root {
-  /* Canvas Background */
-  --canvas-bg: #090d16;
+  /* Google Color Palette */
+  --google-blue: #1a73e8;
+  --google-blue-hover: #1557b0;
+  --google-blue-light: #e8f0fe;
+  --google-red: #ea4335;
+  --google-red-light: #fce8e6;
+  --google-yellow: #fbbc04;
+  --google-yellow-light: #fef7e0;
+  --google-green: #34a853;
+  --google-green-light: #e6f4ea;
   
-  /* Light Studio Porcelain Card */
-  --light-card-bg: #ffffff;
-  --light-card-border: #e2e8f0;
-  --light-card-text: #0f172a;
-  --light-card-muted: #64748b;
-  --light-input-bg: #f8fafc;
-  --light-input-border: #cbd5e1;
+  /* Neutral Surfaces */
+  --bg-main: #f8f9fa;
+  --bg-surface: #ffffff;
+  --bg-secondary: #f1f3f4;
+  --border-main: #dadce0;
+  --border-light: #e8eaed;
   
-  /* Cyber Obsidian Dark Card */
-  --dark-card-bg: #0b111e;
-  --dark-card-border: #1e293b;
-  --dark-card-text: #f8fafc;
-  --dark-card-muted: #94a3b8;
+  /* Text */
+  --text-main: #202124;
+  --text-secondary: #5f6368;
+  --text-muted: #80868b;
   
-  /* Vibrant Accents */
-  --neon-cyan: #00f2fe;
-  --neon-blue: #3b82f6;
-  --neon-purple: #8b5cf6;
-  --neon-emerald: #10b981;
-  --neon-rose: #f43f5e;
-  --neon-amber: #f59e0b;
-  
-  --shadow-elevated: 0 20px 40px -15px rgba(0, 0, 0, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.05);
-  --shadow-light: 0 15px 35px -10px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+  --shadow-md: 0 4px 6px -1px rgba(60,64,67,0.15), 0 2px 4px -1px rgba(60,64,67,0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(60,64,67,0.2), 0 8px 10px -6px rgba(60,64,67,0.15);
 }
 
 * {
@@ -44,174 +44,115 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--canvas-bg);
-  color: #f8fafc;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 90% 15%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 50% 90%, rgba(0, 242, 254, 0.06) 0%, transparent 50%);
-  background-attachment: fixed;
 }
 
 .font-display { font-family: 'Space Grotesk', sans-serif; }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-/* ================= DUALITY CARDS ================= */
-
-/* Zone 1: Light Porcelain Studio Card */
-.studio-light-card {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  color: var(--light-card-text);
-  border: 1px solid var(--light-card-border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-light);
+/* ================= GOOGLE CARDS ================= */
+.google-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.studio-light-card:hover {
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(59, 130, 246, 0.3);
+.google-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #bdc1c6;
 }
 
-/* Zone 2: Cyber Obsidian Core Card */
-.cyber-dark-card {
-  background: linear-gradient(180deg, #0d1527 0%, #080d1a 100%);
-  color: var(--dark-card-text);
-  border: 1px solid #1e293b;
-  border-radius: 20px;
-  box-shadow: var(--shadow-elevated);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.cyber-dark-card:hover {
-  border-color: rgba(0, 242, 254, 0.4);
-  box-shadow: 0 20px 45px -10px rgba(0, 242, 254, 0.15);
-}
-
-.cyber-dark-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.3), transparent);
-}
-
-/* ================= BUTTONS ================= */
-.btn-launch-glow {
-  background: linear-gradient(135deg, #00f2fe 0%, #3b82f6 50%, #8b5cf6 100%);
+/* Primary Action Buttons */
+.btn-google-primary {
+  background: var(--google-blue);
   color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   border-radius: 12px;
   padding: 0.75rem 1.6rem;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+  transition: all 0.2s ease;
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.btn-launch-glow:hover:not(:disabled) {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 242, 254, 0.6);
+.btn-google-primary:hover:not(:disabled) {
+  background: var(--google-blue-hover);
+  box-shadow: 0 4px 14px rgba(26, 115, 232, 0.45);
+  transform: translateY(-1px);
 }
 
-.btn-launch-glow:disabled {
-  opacity: 0.5;
+.btn-google-primary:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
-  filter: grayscale(0.5);
 }
 
-.btn-preset-chip {
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #e2e8f0;
-  padding: 0.35rem 0.75rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
+.btn-google-secondary {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-main);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
   font-weight: 600;
+  font-size: 0.82rem;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.btn-preset-chip:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-  border-color: #cbd5e1;
+.btn-google-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-secondary);
 }
 
-.btn-preset-chip.active {
-  background: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
-}
-
-/* ================= DAG STEP NODES (CYBER GLOW) ================= */
-.dag-node-pill {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1.5px solid #1e293b;
-  border-radius: 14px;
-  padding: 0.85rem;
+/* Interactive Feature Launcher Cards (Replaces giant half-screen boxes) */
+.feature-launcher-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-main);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  position: relative;
-}
-
-.dag-node-pill:hover {
-  border-color: var(--neon-cyan);
-  transform: translateY(-2px);
-  background: rgba(15, 23, 42, 1);
-}
-
-.dag-node-pill.PENDING { opacity: 0.65; }
-
-.dag-node-pill.RUNNING {
-  border-color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.08);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.35);
-  animation: pulse-border 1.8s infinite;
-}
-
-.dag-node-pill.COMPLETED {
-  border-color: var(--neon-emerald);
-  background: rgba(16, 185, 129, 0.08);
-}
-
-.dag-node-pill.FAILED {
-  border-color: var(--neon-rose);
-  background: rgba(244, 63, 94, 0.1);
-}
-
-@keyframes pulse-border {
-  0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.45); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
-}
-
-/* ================= TAB CONTROL (DUALITY HYBRID) ================= */
-.duality-tab-bar {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid #1e293b;
-  padding: 0.35rem;
-  border-radius: 16px;
   display: flex;
-  gap: 0.4rem;
-  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+
+.feature-launcher-card:hover {
+  border-color: var(--google-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  background: #fafbff;
+}
+
+/* Segmented Material Tabs */
+.google-tab-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: 14px;
+  padding: 0.35rem;
+  display: flex;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-sm);
   overflow-x: auto;
 }
 
-.duality-tab-btn {
+.google-tab-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -219,39 +160,36 @@ body {
   border-radius: 10px;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #94a3b8;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  border: none;
   cursor: pointer;
   background: transparent;
   white-space: nowrap;
 }
 
-.duality-tab-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
+.google-tab-btn:hover {
+  color: var(--text-main);
+  background: var(--bg-secondary);
 }
 
-.duality-tab-btn.active {
-  color: #0f172a;
-  background: #ffffff;
-  font-family: 'Space Grotesk', sans-serif;
+.google-tab-btn.active {
+  color: var(--google-blue);
+  background: var(--google-blue-light);
   font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* ================= TERMINAL ================= */
+/* Terminal Log (Light Google Cloud Console Aesthetic) */
 .pro-terminal {
-  background: #04060a;
-  border: 1px solid #161f30;
+  background: #1e293b;
+  border: 1px solid #0f172a;
   border-radius: 14px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
-  color: #7dd3fc;
-  height: 300px;
+  color: #38bdf8;
+  height: 280px;
   overflow-y: auto;
   padding: 1rem;
-  box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.9);
   line-height: 1.6;
 }
 
@@ -261,7 +199,7 @@ body {
   gap: 0.6rem;
   margin-bottom: 0.35rem;
 }
-.log-time { color: #475569; font-size: 0.72rem; flex-shrink: 0; }
+.log-time { color: #64748b; font-size: 0.72rem; flex-shrink: 0; }
 .log-entry.info { color: #38bdf8; }
 .log-entry.success { color: #34d399; }
 .log-entry.warning { color: #fbbf24; }
@@ -276,40 +214,41 @@ body {
   border-radius: 9999px;
   font-size: 0.72rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
-.badge-cyan { background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid rgba(0, 242, 254, 0.4); }
-.badge-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-.badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-.badge-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); }
-.badge-purple { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4); }
+.badge-blue { background: var(--google-blue-light); color: var(--google-blue); border: 1px solid #c2dbff; }
+.badge-green { background: var(--google-green-light); color: var(--google-green); border: 1px solid #ceead6; }
+.badge-red { background: var(--google-red-light); color: var(--google-red); border: 1px solid #fad2cf; }
+.badge-yellow { background: var(--google-yellow-light); color: #b06000; border: 1px solid #feefc3; }
 
-/* Command Palette Modal */
-.cmd-modal-backdrop {
+/* Google Modal Backdrop & Panels */
+.modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(32, 33, 36, 0.6);
+  backdrop-filter: blur(6px);
   z-index: 10000;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 14vh;
+  padding: 1.5rem;
   animation: fadeIn 0.2s ease-out;
 }
 
-.cmd-palette {
+.modal-dialog {
+  background: #ffffff;
+  border: 1px solid var(--border-main);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
   width: 100%;
-  max-width: 640px;
-  background: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 18px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(59, 130, 246, 0.25);
-  overflow: hidden;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleUp { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
 
 /* Toast Notifications */
 #toastContainer {
@@ -325,18 +264,17 @@ body {
 
 .toast-item {
   pointer-events: auto;
-  background: #0f172a;
-  color: #f8fafc;
-  backdrop-filter: blur(12px);
-  border: 1px solid #334155;
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-main);
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 0.65rem;
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   transform: translateX(120%);
   animation: slideIn 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
   max-width: 380px;
@@ -344,19 +282,19 @@ body {
 
 @keyframes slideIn { to { transform: translateX(0); } }
 
-/* Dual Battle Simulator */
+/* Battle Simulator Boxes */
 .battle-box-vuln {
-  background: #fff1f2;
-  border: 1px solid #fecdd3;
-  color: #881337;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  color: #742a2a;
   border-radius: 14px;
   padding: 1.1rem;
 }
 
 .battle-box-safe {
-  background: #052e16;
-  border: 1px solid #15803d;
-  color: #dcfce7;
+  background: #f0fff4;
+  border: 1px solid #c6f6d5;
+  color: #22543d;
   border-radius: 14px;
   padding: 1.1rem;
 }
