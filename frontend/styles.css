@@ -1,20 +1,21 @@
 /* ==========================================================================
-   AutoGuard AI - UI/UX Pro Max Design System
-   Design Tokens: Obsidian Dark, Glassmorphic Elevation, Cyber Neon Accents
+   AutoGuard AI — World-Class AI Agent UI/UX Pro Max Design System
+   Design Tokens: Obsidian Cyber, Dark Matter & Studio Slate Themes
    Typography: Space Grotesk, Plus Jakarta Sans, JetBrains Mono
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
 
+/* Default Theme: Obsidian Cyber */
 :root {
-  --bg-core: #07090e;
-  --bg-surface: #0e131f;
-  --bg-elevated: #141b2d;
-  --bg-card: rgba(17, 24, 39, 0.75);
+  --bg-core: #06080d;
+  --bg-surface: #0c111c;
+  --bg-elevated: #121929;
+  --bg-card: rgba(15, 23, 42, 0.75);
   
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-card: #1f293d;
-  --border-hover: rgba(0, 242, 254, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: #1e293b;
+  --border-hover: rgba(0, 242, 254, 0.4);
   
   --neon-cyan: #00f2fe;
   --neon-blue: #4facfe;
@@ -26,6 +27,34 @@
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-tertiary: #64748b;
+  
+  --glow-primary: rgba(0, 242, 254, 0.25);
+}
+
+/* Theme: Dark Matter (OLED) */
+body.theme-darkmatter {
+  --bg-core: #000000;
+  --bg-surface: #09090b;
+  --bg-elevated: #18181b;
+  --bg-card: rgba(18, 18, 20, 0.85);
+  --border-card: #27272a;
+  --border-hover: rgba(168, 85, 247, 0.5);
+  --neon-cyan: #c084fc;
+  --neon-blue: #818cf8;
+  --glow-primary: rgba(168, 85, 247, 0.25);
+}
+
+/* Theme: Studio Slate */
+body.theme-slate {
+  --bg-core: #0b0f19;
+  --bg-surface: #111827;
+  --bg-elevated: #1f2937;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --border-card: #374151;
+  --border-hover: rgba(59, 130, 246, 0.5);
+  --neon-cyan: #38bdf8;
+  --neon-blue: #60a5fa;
+  --glow-primary: rgba(59, 130, 246, 0.25);
 }
 
 * {
@@ -41,21 +70,17 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 15%, rgba(0, 242, 254, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 90% 25%, rgba(168, 85, 247, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 12% 15%, var(--glow-primary) 0%, transparent 45%),
+    radial-gradient(circle at 88% 25%, rgba(168, 85, 247, 0.05) 0%, transparent 45%),
     radial-gradient(circle at 50% 85%, rgba(79, 172, 254, 0.04) 0%, transparent 50%);
   background-attachment: fixed;
+  transition: background-color 0.3s ease;
 }
 
-.font-display {
-  font-family: 'Space Grotesk', sans-serif;
-}
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
 
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-/* ================= Glassmorphic Bento Cards ================= */
+/* Bento Elevation Card */
 .bento-card {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
@@ -70,7 +95,7 @@ body {
 
 .bento-card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 242, 254, 0.12);
+  box-shadow: 0 16px 36px -10px var(--glow-primary);
 }
 
 .bento-card::before {
@@ -83,15 +108,15 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
 }
 
-/* ================= Buttons & CTAs ================= */
+/* Primary Action Button */
 .btn-cyber-primary {
-  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
   color: #030712;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   border-radius: 12px;
   padding: 0.75rem 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+  box-shadow: 0 4px 20px var(--glow-primary);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
   cursor: pointer;
@@ -103,7 +128,7 @@ body {
 
 .btn-cyber-primary:hover:not(:disabled) {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.55);
+  box-shadow: 0 8px 25px var(--glow-primary);
 }
 
 .btn-cyber-primary:active:not(:disabled) {
@@ -116,8 +141,9 @@ body {
   filter: grayscale(0.5);
 }
 
+/* Secondary Button */
 .btn-cyber-secondary {
-  background: rgba(31, 41, 61, 0.7);
+  background: rgba(30, 41, 59, 0.7);
   color: var(--text-primary);
   border: 1px solid var(--border-card);
   border-radius: 10px;
@@ -132,41 +158,38 @@ body {
 }
 
 .btn-cyber-secondary:hover {
-  background: rgba(45, 59, 86, 0.9);
-  border-color: rgba(0, 242, 254, 0.4);
-  color: #00f2fe;
+  background: rgba(51, 65, 85, 0.9);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
 }
 
-/* ================= DAG Step Nodes ================= */
+/* DAG Step Nodes */
 .dag-step-node {
-  background: rgba(14, 19, 31, 0.9);
-  border: 1.5px solid #1f293d;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-card);
   border-radius: 14px;
   padding: 1rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.dag-step-node.PENDING {
-  opacity: 0.65;
-  border-color: #1e293b;
+.dag-step-node:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-2px);
 }
 
+.dag-step-node.PENDING { opacity: 0.65; }
 .dag-step-node.RUNNING {
   border-color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.05);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+  background: rgba(0, 242, 254, 0.06);
+  box-shadow: 0 0 25px var(--glow-primary);
   animation: pulse-border 1.8s infinite;
 }
-
 .dag-step-node.COMPLETED {
   border-color: var(--neon-emerald);
   background: rgba(16, 185, 129, 0.06);
 }
-
 .dag-step-node.FAILED {
   border-color: var(--neon-rose);
   background: rgba(244, 63, 94, 0.08);
@@ -178,15 +201,15 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
 }
 
-/* ================= Terminal & Stream Log ================= */
+/* Terminal Log */
 .pro-terminal {
-  background: #05070c;
-  border: 1px solid #1a2333;
+  background: #030508;
+  border: 1px solid #161f30;
   border-radius: 12px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   color: #7dd3fc;
-  height: 270px;
+  height: 280px;
   overflow-y: auto;
   padding: 0.85rem 1.1rem;
   box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.85);
@@ -200,20 +223,13 @@ body {
   margin-bottom: 0.35rem;
   word-break: break-word;
 }
-
-.log-time {
-  color: var(--text-tertiary);
-  font-size: 0.72rem;
-  flex-shrink: 0;
-}
-
+.log-time { color: var(--text-tertiary); font-size: 0.72rem; flex-shrink: 0; }
 .log-entry.info { color: #38bdf8; }
 .log-entry.success { color: #34d399; }
 .log-entry.warning { color: #fbbf24; }
 .log-entry.error { color: #f87171; }
-.log-entry.security { color: #c084fc; font-weight: 600; }
 
-/* ================= Badges & Pills ================= */
+/* Status Badges */
 .pro-pill {
   display: inline-flex;
   align-items: center;
@@ -225,14 +241,41 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-
 .pill-cyan { background: rgba(0, 242, 254, 0.12); color: #38bdf8; border: 1px solid rgba(0, 242, 254, 0.35); }
 .pill-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
 .pill-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
 .pill-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); }
 .pill-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
 
-/* ================= Toast Notification System ================= */
+/* Command Palette Modal */
+.cmd-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.cmd-palette {
+  width: 100%;
+  max-width: 640px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px var(--glow-primary);
+  overflow: hidden;
+  animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleUp { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+/* Toast Notifications */
 #toastContainer {
   position: fixed;
   bottom: 1.5rem;
@@ -246,7 +289,7 @@ body {
 
 .toast-item {
   pointer-events: auto;
-  background: rgba(17, 24, 39, 0.95);
+  background: var(--bg-surface);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-card);
   padding: 0.85rem 1.25rem;
@@ -259,25 +302,25 @@ body {
   font-weight: 500;
   transform: translateX(120%);
   animation: slideIn 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
-  max-width: 380px;
+  max-width: 400px;
 }
 
-@keyframes slideIn {
-  to { transform: translateX(0); }
-}
+@keyframes slideIn { to { transform: translateX(0); } }
 
-/* ================= Custom Scrollbars ================= */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+/* Dual Battle Arena Simulator */
+.battle-pane {
+  border-radius: 12px;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  min-height: 140px;
+  line-height: 1.5;
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-core);
+.battle-pane-vuln {
+  background: rgba(244, 63, 94, 0.06);
+  border: 1px solid rgba(244, 63, 94, 0.3);
 }
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+.battle-pane-safe {
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
