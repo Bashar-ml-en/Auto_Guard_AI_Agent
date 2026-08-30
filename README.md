@@ -2,7 +2,7 @@
 
 > **Google Hackathon: All Things Agentic** | **Track: The Taskmaster**  
 > **Author**: [Bashar (Bashar-ml-en)](https://github.com/Bashar-ml-en)  
-> **Repository**: [https://github.com/Bashar-ml-en/Auto-Guard-AI-Agent](https://github.com/Bashar-ml-en/Auto-Guard-AI-Agent)  
+> **Repository**: [https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent](https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent)  
 > *Built with Google Gemini 2.5/3.5, Google GenAI SDK, Google Cloud Run, Cloud Firestore, Cloud Storage, and Vercel.*
 
 ---
@@ -101,8 +101,8 @@ flowchart TB
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/Bashar-ml-en/Auto-Guard-AI-Agent.git
-cd Auto-Guard-AI-Agent
+git clone https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent.git
+cd Auto_Guard_AI_Agent
 
 python -m venv .venv
 # On Windows:
