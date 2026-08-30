@@ -7,4 +7,5 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from backend.app.main import app
 
-# Vercel serverless ASGI handler
+# Export app and handler for Vercel runtime
+handler = app
