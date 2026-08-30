@@ -1,0 +1,18 @@
+# Core Google GenAI & Agent SDK
+google-genai>=0.1.1
+google-cloud-firestore>=2.16.0
+google-cloud-storage>=2.14.0
+
+# API & Web Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.1
+httpx>=0.27.0
+sse-starlette>=2.0.0
+
+# Utilities & Testing
+rich>=13.7.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
