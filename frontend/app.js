@@ -47,6 +47,9 @@ function loadPreset(key) {
   document.getElementById("systemPrompt").value = p.systemPrompt;
   document.getElementById("sensitiveSecrets").value = p.secrets;
   
+  const baseEl = document.getElementById("baselinePromptDisplay");
+  if (baseEl) baseEl.textContent = p.systemPrompt;
+
   const badge = document.getElementById("launcherPresetBadge");
   if (badge) badge.textContent = p.appName.split(' ')[0];
   
@@ -58,6 +61,8 @@ function updateCharCount() {
   const text = document.getElementById("systemPrompt").value;
   const countEl = document.getElementById("promptCharCount");
   if (countEl) countEl.textContent = `${text.length} chars`;
+  const baseEl = document.getElementById("baselinePromptDisplay");
+  if (baseEl) baseEl.textContent = text;
 }
 
 // ================= Modal Controllers =================
