@@ -270,15 +270,9 @@ tests/test_optimizer.py::test_code_sandbox_leak_scanner PASSED           [100%]
 
 ---
 
-## 📹 4-Minute Demo Video Script & Walkthrough
+## 📹 Video Walkthrough & Presentation Guide
 
-| Timestamp | Screen / Visual | Narration & Voiceover Script |
-| :--- | :--- | :--- |
-| **0:00 – 0:45** | Architecture Diagram & Introduction | *"Meet AutoGuard AI Agent—an autonomous Taskmaster agent engineered by Bashar for the Google All Things Agentic Hackathon. In production, red-teaming LLMs takes weeks of manual labor. AutoGuard automates the entire end-to-end security audit and prompt-hardening lifecycle using Gemini 3.7 Flash and Google Cloud Run with zero human in the loop."* |
-| **0:45 – 1:30** | Console Overview & Target Selection | *"We select our Apex Bank Support Agent. Looking at the Duel Arena, we test a delimiter override attack. The unhardened baseline model immediately falls for the exploit and leaks master vault keys with 99.4% vulnerability confidence."* |
-| **1:30 – 2:30** | Autonomous DAG Cascade Execution | *"We click 'Execute Taskmaster DAG'. Notice the 6-stage DAG illuminate with Google color laser sweeps. Stage 1 decomposes the boundaries. Stage 2 uses Gemini 3.7 Flash to synthesize 54 adversarial vectors. Stage 3 probes parallel sandboxes. Stage 4 flags critical leaks, dropping the baseline score to 28.4%."* |
-| **2:30 – 3:30** | Self-Healing Loop & Real Git Diff | *"Stage 5 initiates the Evolutionary Self-Healing Loop. Inspecting the real Git Diff viewer, we see redlined deletions of vague emergency clauses and green additions of Immutable Delimiter Envelopes. The safety score climbs from 28.4% to 98.6% Grade A+."* |
-| **3:30 – 4:00** | Cloud Run Delivery & Security Passport | *"Stage 6 packages the microservice container for Google Cloud Run and saves audit state to Cloud Firestore. We click 'Audit Report & Passport' to export our official machine-verifiable compliance certificate. AutoGuard AI turns a 20-hour manual chore into a 30-second autonomous workflow. Thank you!"* |
+A complete second-by-second narration script, visual cues, and presenter walkthrough for recording the 4-minute submission video are available in [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md).
 
 ---
 
