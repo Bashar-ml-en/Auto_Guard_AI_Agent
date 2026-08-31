@@ -108,6 +108,14 @@ if os.path.exists(frontend_dir):
     async def serve_index():
         return FileResponse(os.path.join(frontend_dir, "index.html"))
 
+    @app.get("/favicon.ico")
+    async def serve_favicon():
+        return FileResponse(os.path.join(frontend_dir, "favicon.svg"), media_type="image/svg+xml")
+
+    @app.get("/favicon.svg")
+    async def serve_favicon_svg():
+        return FileResponse(os.path.join(frontend_dir, "favicon.svg"), media_type="image/svg+xml")
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host=settings.host, port=settings.port)
