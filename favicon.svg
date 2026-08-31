@@ -1,29 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00e5a3" />
-      <stop offset="50%" stop-color="#00b4d8" />
-      <stop offset="100%" stop-color="#1a73e8" />
+    <!-- Google 4-Color Vibrant Conic/Linear Gradient -->
+    <linearGradient id="googleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4285F4" />   <!-- Google Blue -->
+      <stop offset="33%" stop-color="#EA4335" />  <!-- Google Red -->
+      <stop offset="66%" stop-color="#FBBC05" />  <!-- Google Yellow -->
+      <stop offset="100%" stop-color="#34A853" /> <!-- Google Green -->
     </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#050811" />
-      <stop offset="100%" stop-color="#0e131d" />
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00e5a3" flood-opacity="0.5" />
+
+    <!-- Deep Cyber Inner Plate -->
+    <radialGradient id="innerPlate" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <filter id="badgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#4285F4" flood-opacity="0.4" />
     </filter>
   </defs>
 
-  <!-- Squircle Base -->
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" filter="url(#glow)" />
+  <!-- Google 4-Color Outer Ring / Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#googleGradient)" filter="url(#badgeGlow)" />
   
-  <!-- Cyber Inner Shield -->
-  <path d="M32 10 L50 17 C50 33 42 46 32 52 C22 46 14 33 14 17 Z" fill="url(#shieldGrad)" stroke="#030712" stroke-width="1.5" />
+  <!-- Sleek Contrast Inner Bed (Gives ultra-high contrast to the AG text) -->
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="url(#innerPlate)" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
 
-  <!-- AG_AI Typography Overlay -->
-  <!-- "AG" Main Letters -->
-  <text x="32" y="32" font-family="'Space Grotesk', 'JetBrains Mono', system-ui, sans-serif" font-size="16" font-weight="900" fill="#00e5a3" text-anchor="middle" letter-spacing="-0.5">AG</text>
-  
-  <!-- "_AI" Accent Underneath -->
-  <text x="32" y="44" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" fill="#00f0ff" text-anchor="middle" letter-spacing="1">_AI</text>
+  <!-- Prominent, Bold, Ultra-Visible "AG" Monogram -->
+  <text x="32" y="41" 
+        font-family="'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif" 
+        font-size="26" 
+        font-weight="900" 
+        fill="#FFFFFF" 
+        text-anchor="middle" 
+        letter-spacing="-0.5">AG</text>
 </svg>
