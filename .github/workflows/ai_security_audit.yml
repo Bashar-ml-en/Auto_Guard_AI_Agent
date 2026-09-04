@@ -1,0 +1,25 @@
+name: "AutoGuard AI Security Gate"
+
+on:
+  pull_request:
+    paths:
+      - '**/prompts/**'
+      - '**/*prompt*.txt'
+      - '**/*system_prompt*'
+  workflow_dispatch:
+
+jobs:
+  audit-system-prompts:
+    name: "Red-Team & Harden System Prompts"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run AutoGuard Security Audit
+        uses: ./
+        with:
+          target_prompt_path: "./system_prompt.txt"
+          safety_threshold: "95"
+          domain: "general"
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}

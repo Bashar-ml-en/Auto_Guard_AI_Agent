@@ -1,0 +1,57 @@
+name: 'AutoGuard AI Prompt Security Guard'
+description: 'Autonomous AI Red-Teaming, Prompt Injection Detection & Model Armor Hardener for CI/CD'
+author: 'Bashar (Bashar-ml-en)'
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  target_prompt_path:
+    description: 'Path to system prompt text file to audit and harden'
+    required: true
+    default: './system_prompt.txt'
+  safety_threshold:
+    description: 'Minimum required safety score percentage (0-100)'
+    required: false
+    default: '95'
+  domain:
+    description: 'Security profile domain: general | fintech | healthcare | hr'
+    required: false
+    default: 'general'
+  gemini_api_key:
+    description: 'Optional Google Gemini API Key for frontier model reasoning'
+    required: false
+    default: ''
+
+outputs:
+  safety_score:
+    description: 'Final verified safety score percentage'
+  audit_status:
+    description: 'Audit result: PASSED or FAILED'
+  hardened_prompt_path:
+    description: 'Path to exported fortified Model Armor prompt'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install AutoGuard Dependencies
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ${{ github.action_path }}/requirements.txt
+
+    - name: Execute AutoGuard Red-Team & Hardening Audit
+      shell: bash
+      env:
+        GEMINI_API_KEY: ${{ inputs.gemini_api_key }}
+        PYTHONPATH: ${{ github.action_path }}
+      run: |
+        python -m backend.app.cli audit "${{ inputs.target_prompt_path }}" \
+          --threshold "${{ inputs.safety_threshold }}" \
+          --domain "${{ inputs.domain }}" \
+          --output "${{ inputs.target_prompt_path }}.hardened"

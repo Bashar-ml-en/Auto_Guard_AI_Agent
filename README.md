@@ -7,7 +7,7 @@
 [![Model: Gemini 3.7 Flash](https://img.shields.io/badge/AI%20Model-Gemini%203.7%20Flash-FBBC05?style=for-the-badge&logo=googlegemini&logoColor=black)](https://aistudio.google.com/)
 [![Cloud: Google Cloud Run](https://img.shields.io/badge/Cloud-Google%20Cloud%20Run-34A853?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
 [![Live Demo](https://img.shields.io/badge/Live%20Production-autoguard--ai--agent.vercel.app-00F0FF?style=for-the-badge&logo=vercel&logoColor=white)](https://autoguard-ai-agent.vercel.app)
-[![Tests Passing](https://img.shields.io/badge/Pytest-9%2F9%20Passing%20(100%25)-00E5A3?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent)
+[![Tests Passing](https://img.shields.io/badge/Pytest-14%2F14%20Passing%20(100%25)-00E5A3?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent)
 
 <p align="center">
   <strong>An autonomous multi-agent SecOps Taskmaster that attacks, probes, evaluates, self-heals, and deploys hardened LLM applications on Google Cloud Run with zero human in the loop.</strong>
@@ -235,6 +235,65 @@ Open **`http://localhost:8000`** in your browser to access the console.
 
 AutoGuard AI includes a 100% passing test suite across all agent modules:
 
+---
+
+## 💻 Developer CLI & CI/CD GitHub Action
+
+AutoGuard AI is designed as both a reactive web console and an enterprise **DevSecOps toolchain**. Developers can red-team system prompts directly in their terminal or gate Pull Requests in CI/CD.
+
+### 1. Standalone Python CLI Tool
+Run an autonomous red-teaming audit on any prompt file:
+
+```bash
+# Basic terminal audit
+python -m backend.app.cli audit ./system_prompt.txt
+
+# Audit with custom domain and strict 98% threshold
+python -m backend.app.cli audit ./system_prompt.txt --domain fintech --threshold 98 --output ./hardened_prompt.txt
+
+# Output as JSON or Markdown (for CI pipelines)
+python -m backend.app.cli audit ./system_prompt.txt --format markdown
+```
+
+### 2. Native GitHub Action (`action.yml`)
+Add automated AI security checks to any repository on every Pull Request:
+
+```yaml
+name: "AI Prompt Security Audit"
+on: [pull_request]
+
+jobs:
+  autoguard-security-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: AutoGuard Security Audit
+        uses: Bashar-ml-en/Auto_Guard_AI_Agent@main
+        with:
+          target_prompt_path: "./system_prompt.txt"
+          safety_threshold: "95"
+          domain: "fintech"
+```
+
+---
+
+## 🏷️ OWASP Top 10 for LLMs (2025 Compliance Matrix)
+
+AutoGuard AI explicitly categorizes and mitigates vulnerabilities according to the **OWASP Top 10 for Large Language Models**:
+
+| OWASP Code | Threat Category | Attack Vectors Synthesized | AutoGuard Countermeasure |
+| :--- | :--- | :--- | :--- |
+| **`LLM01:2025`** | **Prompt Injection & Delimiter Overrides** | `--- END SYSTEM ---`, Base64 Injections | Cryptographic `<USER_INPUT>` Envelope Isolation |
+| **`LLM02:2025`** | **Sensitive Information Disclosure** | PII Exfiltration, Database Vault Keys | Immutable Redaction Shield & Directive Hierarchy |
+| **`LLM06:2025`** | **Excessive Agency & Privilege Escalation** | Pretext Traps, Emergency Roleplay | Cryptographic Multi-Party Authorization Gates |
+| **`LLM07:2025`** | **System Prompt Leakage** | Extraction Probes, Reverse Reflection | Anti-Reflection Directives & Boundary Locks |
+
+---
+
+## 🧪 Automated Testing Suite (100% Pass Rate)
+
+AutoGuard AI includes a complete automated test suite covering all multi-agent modules, CLI commands, and API routers:
+
 ```bash
 pytest tests/ -v
 ```
@@ -242,18 +301,23 @@ pytest tests/ -v
 ```
 ============================= test session starts =============================
 platform win32 -- Python 3.11.16, pytest-9.1.1
-collected 9 items
+collected 14 items
 
-tests/test_agents.py::test_red_team_attack_generation PASSED             [ 11%]
-tests/test_agents.py::test_batch_executor PASSED                         [ 22%]
-tests/test_agents.py::test_critic_evaluation PASSED                      [ 33%]
-tests/test_agents.py::test_dag_plan_generation PASSED                    [ 44%]
-tests/test_api.py::test_health_check PASSED                              [ 55%]
-tests/test_api.py::test_start_audit_endpoint PASSED                      [ 66%]
-tests/test_api.py::test_recent_audits_endpoint PASSED                    [ 77%]
-tests/test_optimizer.py::test_prompt_optimizer_evolution PASSED          [ 88%]
+tests/test_agents.py::test_red_team_attack_generation PASSED             [  7%]
+tests/test_agents.py::test_batch_executor PASSED                         [ 14%]
+tests/test_agents.py::test_critic_evaluation PASSED                      [ 21%]
+tests/test_agents.py::test_dag_plan_generation PASSED                    [ 28%]
+tests/test_api.py::test_health_check PASSED                              [ 35%]
+tests/test_api.py::test_start_audit_endpoint PASSED                      [ 42%]
+tests/test_api.py::test_recent_audits_endpoint PASSED                    [ 50%]
+tests/test_cli.py::test_cli_help PASSED                                  [ 57%]
+tests/test_cli.py::test_cli_audit_console_format PASSED                  [ 64%]
+tests/test_cli.py::test_cli_audit_json_format PASSED                     [ 71%]
+tests/test_cli.py::test_cli_audit_markdown_format PASSED                 [ 78%]
+tests/test_cli.py::test_cli_audit_output_file PASSED                     [ 85%]
+tests/test_optimizer.py::test_prompt_optimizer_evolution PASSED          [ 92%]
 tests/test_optimizer.py::test_code_sandbox_leak_scanner PASSED           [100%]
-======================== 9 passed in 25.27s ========================
+======================== 14 passed in 153.80s ========================
 ```
 
 ---
